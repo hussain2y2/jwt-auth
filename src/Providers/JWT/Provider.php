@@ -162,6 +162,7 @@ abstract class Provider
      * Get the key used to sign the tokens.
      *
      * @return resource|string
+     * @throws \Tymon\JWTAuth\Exceptions\JWTException
      */
     protected function getSigningKey()
     {
@@ -169,9 +170,10 @@ abstract class Provider
     }
 
     /**
-     * Get the key used to verify the tokens.
+     * Get the key used to verify the tokens
      *
      * @return resource|string
+     * @throws \Tymon\JWTAuth\Exceptions\JWTException
      */
     protected function getVerificationKey()
     {

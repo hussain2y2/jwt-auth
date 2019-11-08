@@ -92,9 +92,9 @@ class Illuminate implements Storage
     /**
      * Get an item from storage.
      *
-     * @param  string  $key
-     *
+     * @param string $key
      * @return mixed
+     * @throws \Psr\SimpleCache\InvalidArgumentException
      */
     public function get($key)
     {

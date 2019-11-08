@@ -22,6 +22,9 @@ use Tymon\JWTAuth\Test\AbstractTestCase;
 
 class CollectionTest extends AbstractTestCase
 {
+    /**
+     * @return Collection
+     */
     private function getCollection()
     {
         $claims = [

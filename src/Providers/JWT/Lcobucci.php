@@ -51,12 +51,12 @@ class Lcobucci extends Provider implements JWT
     /**
      * Create the Lcobucci provider.
      *
-     * @param  \Lcobucci\JWT\Builder  $builder
-     * @param  \Lcobucci\JWT\Parser  $parser
+     * @param Builder $builder
+     * @param Parser $parser
      * @param  string  $secret
      * @param  string  $algo
      * @param  array  $keys
-     *
+     * @throws JWTException
      * @return void
      */
     public function __construct(
@@ -160,6 +160,7 @@ class Lcobucci extends Provider implements JWT
 
     /**
      * {@inheritdoc}
+     * @throws \ReflectionException
      */
     protected function isAsymmetric()
     {
@@ -173,9 +174,13 @@ class Lcobucci extends Provider implements JWT
      */
     protected function getSigningKey()
     {
-        return $this->isAsymmetric() ?
-            (new Keychain())->getPrivateKey($this->getPrivateKey(), $this->getPassphrase()) :
-            $this->getSecret();
+        try {
+            return $this->isAsymmetric() ?
+                (new Keychain())->getPrivateKey($this->getPrivateKey(), $this->getPassphrase()) :
+                $this->getSecret();
+        } catch (\ReflectionException $e) {
+        } catch (JWTException $e) {
+        }
     }
 
     /**
@@ -183,8 +188,12 @@ class Lcobucci extends Provider implements JWT
      */
     protected function getVerificationKey()
     {
-        return $this->isAsymmetric() ?
-            (new Keychain())->getPublicKey($this->getPublicKey()) :
-            $this->getSecret();
+        try {
+            return $this->isAsymmetric() ?
+                (new Keychain())->getPublicKey($this->getPublicKey()) :
+                $this->getSecret();
+        } catch (\ReflectionException $e) {
+        } catch (JWTException $e) {
+        }
     }
 }

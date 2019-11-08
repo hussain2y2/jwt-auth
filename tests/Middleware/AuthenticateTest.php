@@ -24,7 +24,7 @@ class AuthenticateTest extends AbstractMiddlewareTest
      */
     protected $middleware;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 

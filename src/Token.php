@@ -23,9 +23,8 @@ class Token
     /**
      * Create a new JSON Web Token.
      *
-     * @param  string  $value
-     *
-     * @return void
+     * @param $value
+     * @throws Exceptions\TokenInvalidException
      */
     public function __construct($value)
     {

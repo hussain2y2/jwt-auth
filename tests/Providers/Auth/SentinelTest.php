@@ -29,7 +29,7 @@ class SentinelTest extends AbstractTestCase
      */
     protected $auth;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 

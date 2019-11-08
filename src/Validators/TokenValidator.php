@@ -18,9 +18,9 @@ class TokenValidator extends Validator
     /**
      * Check the structure of the token.
      *
-     * @param  string  $value
-     *
-     * @return string
+     * @param array $value
+     * @return string|void
+     * @throws TokenInvalidException
      */
     public function check($value)
     {

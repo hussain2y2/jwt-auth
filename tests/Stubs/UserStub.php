@@ -15,11 +15,17 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
 
 class UserStub implements JWTSubject
 {
+    /**
+     * @return int|mixed
+     */
     public function getJWTIdentifier()
     {
         return 1;
     }
 
+    /**
+     * @return array
+     */
     public function getJWTCustomClaims()
     {
         return [

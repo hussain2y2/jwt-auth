@@ -11,12 +11,16 @@
 
 namespace Tymon\JWTAuth\Claims;
 
+use Tymon\JWTAuth\Exceptions\InvalidClaimException;
+
 class Custom extends Claim
 {
     /**
+     * Custom constructor.
+     *
      * @param  string  $name
      * @param  mixed  $value
-     *
+     * @throws InvalidClaimException
      * @return void
      */
     public function __construct($name, $value)

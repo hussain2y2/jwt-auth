@@ -47,7 +47,7 @@ class JWTAuthTest extends AbstractTestCase
      */
     protected $jwtAuth;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->manager = Mockery::mock(Manager::class);
         $this->auth = Mockery::mock(Auth::class);

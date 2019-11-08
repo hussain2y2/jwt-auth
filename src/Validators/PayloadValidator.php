@@ -40,9 +40,10 @@ class PayloadValidator extends Validator
     /**
      * Run the validations on the payload array.
      *
-     * @param  \Tymon\JWTAuth\Claims\Collection  $value
-     *
-     * @return \Tymon\JWTAuth\Claims\Collection
+     * @param array $value
+     * @return Collection|void
+     * @throws TokenInvalidException
+     * @throws \Tymon\JWTAuth\Exceptions\TokenExpiredException
      */
     public function check($value)
     {

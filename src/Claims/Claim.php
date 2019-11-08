@@ -33,9 +33,11 @@ abstract class Claim implements Arrayable, ClaimContract, Jsonable, JsonSerializ
     private $value;
 
     /**
-     * @param  mixed  $value
      *
+     * Claim constructor.
+     * @param mixed  $value
      * @return void
+     * @throws \Tymon\JWTAuth\Exceptions\InvalidClaimException
      */
     public function __construct($value)
     {
